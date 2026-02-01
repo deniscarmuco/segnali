@@ -1,0 +1,35 @@
+{{ define "main" }}
+<article class="markdown book-article archive-article">
+  <h1>{{ .Title }}</h1>
+  
+  {{ .Content }}
+  
+  <div class="archive-list">
+    {{ $currentPage := . }}
+    {{ $count := 0 }}
+    {{ range $page := (where .Site.Pages.ByDate.Reverse "Type" "!=" "") }}
+      {{ if and (ne $page.Kind "home") (ne $page.Kind "taxonomy") (ne $page.Kind "term") (ne $page.Layout "archive") }}
+        {{ $count = add $count 1 }}
+      {{ end }}
+    {{ end }}
+    
+    {{ range $page := (where .Site.Pages.ByDate.Reverse "Type" "!=" "") }}
+      {{ if and (ne $page.Kind "home") (ne $page.Kind "taxonomy") (ne $page.Kind "term") (ne $page.Kind "section") }}
+        <div class="archive-entry">
+          <span class="archive-date">{{ $page.Date.Format "2006-01-02" }}</span>
+          <span class="archive-number">
+            {{ $totalCount := 0 }}
+            {{ range $p := .Site.Pages }}
+              {{ if and (ne $p.Kind "home") (ne $p.Kind "taxonomy") (ne $p.Kind "term") (ne $p.Layout "archive") (le $p.Date $page.Date) }}
+                {{ $totalCount = add $totalCount 1 }}
+              {{ end }}
+            {{ end }}
+            #{{ printf "%04d" $totalCount }}
+          </span>
+          <a href="{{ $page.RelPermalink }}" class="archive-link">{{ $page.Title }}</a>
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+</article>
+{{ end }}
