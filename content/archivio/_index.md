@@ -1,6 +1,5 @@
 ---
 title: Archivio
-layout: archive
 weight: 999
 ---
 

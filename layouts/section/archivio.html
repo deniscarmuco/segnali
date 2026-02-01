@@ -5,9 +5,8 @@
   {{ .Content }}
   
   <div class="archive-list">
-    <!-- Debug: {{ len .Site.RegularPages }} regular pages -->
-    {{ range .Site.RegularPages.ByDate.Reverse }}
-      {{ if ne .Layout "archive" }}
+    {{ range .Site.Pages.ByDate.Reverse }}
+      {{ if and (eq .Section "docs") (eq .Kind "page") (not .Draft) }}
         <div class="archive-entry">
           <span class="archive-date">{{ .Date.Format "2006-01-02" }}</span>
           <span class="archive-number">#0001</span>
