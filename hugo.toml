@@ -1,0 +1,48 @@
+baseURL = 'https://example.org/'
+languageCode = 'it'
+title = 'segnali'
+theme = 'hugo-book'
+
+# Configurazioni di output
+[outputs]
+  home = ['HTML', 'RSS']
+
+# Configurazioni specifiche del tema
+[params]
+  # Estetica minimalista
+  BookTheme = 'light'
+  BookToC = true
+  BookComments = false
+  BookSearch = true
+  BookPortableLinks = true
+  
+  # Font personalizzato
+  BookCustomCSS = ['fonts.css']
+  
+  # Colori e stile pulito
+  BookMenuBundle = true
+
+# Menu principale della sidebar
+[[menu.main]]
+  identifier = 'infrastrutture'
+  name = '01. Infrastrutture'
+  weight = 1
+  url = '/docs/infrastrutture/'
+
+[[menu.main]]
+  identifier = 'sistemi'
+  name = '02. Sistemi'
+  weight = 2
+  url = '/docs/sistemi/'
+
+[[menu.main]]
+  identifier = 'orizzonti'
+  name = '03. Orizzonti'
+  weight = 3
+  url = '/docs/orizzonti/'
+
+[[menu.main]]
+  identifier = 'strumenti'
+  name = '04. Strumenti'
+  weight = 4
+  url = '/docs/strumenti/'

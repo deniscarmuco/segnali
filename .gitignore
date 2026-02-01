@@ -1,0 +1,20 @@
+# Hugo
+public/
+resources/
+.hugo_build.lock
+
+# Environment
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+themes/hugo-book
