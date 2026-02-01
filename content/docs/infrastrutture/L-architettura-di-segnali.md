@@ -1,5 +1,5 @@
 ---
-title: "01.01 L'architettura di Segnali"
+title: "L'architettura di Segnali"
 date: 2026-02-01
 draft: false
 ---

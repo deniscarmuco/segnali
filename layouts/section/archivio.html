@@ -5,14 +5,14 @@
   {{ .Content }}
   
   <div class="archive-list">
-    {{ range .Site.Pages.ByDate.Reverse }}
-      {{ if and (eq .Section "docs") (eq .Kind "page") (not .Draft) }}
-        <div class="archive-entry">
-          <span class="archive-date">{{ .Date.Format "2006-01-02" }}</span>
-          <span class="archive-number">#0001</span>
-          <a href="{{ .RelPermalink }}" class="archive-link">{{ .Title }}</a>
-        </div>
-      {{ end }}
+    {{ $pages := where .Site.Pages "Section" "docs" }}
+    {{ $pages := where $pages "Kind" "page" }}
+    {{ $pages := where $pages "Draft" false }}
+    {{ $totalPages := len $pages }}
+    {{ range $index, $page := ($pages.ByDate.Reverse) }}
+      <div class="archive-entry">
+        <a href="{{ $page.RelPermalink }}" class="archive-link">#{{ printf "%04d" (sub $totalPages $index) }} - {{ $page.Title }}</a>
+      </div>
     {{ end }}
   </div>
 </article>

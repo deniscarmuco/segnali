@@ -1,5 +1,5 @@
 ---
-title: "03.01 Il Silenzio della Prateria Digitale"
+title: "Il Silenzio della Prateria Digitale"
 date: 2026-02-01
 draft: false
 tags: ["Red Dead Redemption 2", "Natura", "Logica"]

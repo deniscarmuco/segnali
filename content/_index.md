@@ -25,7 +25,3 @@ Esperienze in natura, mondi digitali e musica.
 
 **[04. Strumenti](/docs/strumenti/)**  
 Setup tecnico, VS Code, playlist e utility.
----
-
-**[Archivio](/archivio/)**  
-Elenco completo di tutti i segnali pubblicati.
