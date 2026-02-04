@@ -19,7 +19,7 @@
           <a href="{{ $page.RelPermalink }}">#{{ printf "%04d" (sub $totalPages $index) }} - {{ $page.Title }}</a>
         </h3>
         <p class="post-date">{{ $page.Date.Format "2006-01-02" }}</p>
-        <p class="post-summary">{{ $page.Summary }}</p>
+        <p class="post-summary">{{ (substr $page.Summary 0 140) | plainify }}...</p>
       </div>
     {{ end }}
   </div>
