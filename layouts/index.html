@@ -15,11 +15,21 @@
     {{ $totalPages := len $pages }}
     {{ range $index, $page := (first 5 ($pages.ByDate.Reverse)) }}
       <div class="post-entry">
+        <div class="post-header">
+          <span class="post-id">#{{ printf "%04d" (sub $totalPages $index) }}</span>
+          <span class="post-date">{{ $page.Date.Format "2006-01-02" }}</span>
+        </div>
+        
         <h3 class="post-title">
-          <a href="{{ $page.RelPermalink }}">#{{ printf "%04d" (sub $totalPages $index) }} - {{ $page.Title }}</a>
+          <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
         </h3>
-        <p class="post-date">{{ $page.Date.Format "2006-01-02" }}</p>
+        
         <p class="post-summary">{{ (substr $page.Summary 0 140) | plainify }}...</p>
+        
+        <div class="post-meta">
+          <span class="post-category {{ .Section }}">{{ strings.TrimPrefix "docs/" .Section }}</span>
+          <span class="read-time">{{ math.Ceil (div (len $page.PlainWords) 200) }} min</span>
+        </div>
       </div>
     {{ end }}
   </div>
