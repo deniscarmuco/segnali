@@ -3,4 +3,4 @@ title: Archivio
 weight: 999
 ---
 
-Elenco completo di tutti i segnali pubblicati in ordine cronologico decrescente.
+Elenco completo di tutti i post pubblicati in ordine cronologico decrescente.
