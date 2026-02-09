@@ -192,18 +192,142 @@ Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed 
 
 ---
 
-## Front Matter (Metadati)
+## Front Matter - Opzioni Complete
 
-Ogni post ha un front matter YAML all'inizio che definisce:
+Il front matter è la sezione YAML all'inizio di ogni post che definisce i metadati. Ecco tutte le opzioni disponibili:
+
+### Struttura base
 
 ```yaml
 ---
-title: "Titolo del post"          # Titolo principale
-date: 2026-02-08                  # Data di pubblicazione (YYYY-MM-DD)
-draft: false                      # false=pubblicato, true=bozza
-weight: 10                        # Ordine di visualizzazione (opzionale)
-tags: ["tag1", "tag2"]           # Tag per categorizzazione
-summary: "Breve descrizione..."   # Sommario da mostrare negli elenchi
+title: "Titolo del post"
+date: 2026-02-08
+draft: false
+---
+```
+
+### Opzioni complete del Front Matter
+
+| Campo | Tipo | Obbligatorio | Descrizione |
+|-------|------|--------------|-------------|
+| `title` | string | ✓ Sì | Titolo principale del post |
+| `date` | YYYY-MM-DD | ✓ Sì | Data di pubblicazione |
+| `draft` | boolean | No | `true` = bozza (nascosto), `false` = pubblicato |
+| `weight` | numero | No | Ordine di visualizzazione nella sezione (numeri più bassi = prima) |
+| `tags` | array | No | Tag per categorizzazione: `["tag1", "tag2"]` |
+| `summary` | string | No | Sommario di 1-2 righe mostrato negli elenchi |
+| `description` | string | No | Descrizione alternativa (SEO) |
+| `keywords` | array | No | Parole chiave per ricerca: `["chiave1", "chiave2"]` |
+| `aliases` | array | No | URL alternativi per il post |
+| `slug` | string | No | URL personalizzato del post |
+| `layout` | string | No | Template layout personalizzato |
+| `toc` | boolean | No | Mostra/nascondi table of contents |
+| `math` | boolean | No | Abilita rendering KaTeX per formule matematiche |
+| `diagram` | boolean | No | Abilita rendering Mermaid per diagrammi |
+
+### Esempio completo con tutte le opzioni
+
+```yaml
+---
+# Informazioni base (obbligatori)
+title: "L'architettura tecnica del progetto"
+date: 2026-02-09
+
+# Visibilità e ordine
+draft: false                    # Pubblica il post
+weight: 1                       # Primo nella sezione
+
+# Organizzazione e categorizzazione
+tags: ["architettura", "backend", "infrastructure"]
+summary: "Una analisi profonda dell'architettura tecnica, dalle fondamenta ai sistemi distribuiti."
+
+# SEO e Discovery
+description: "Scopri come è costruita l'infrastruttura tecnologica di questo progetto"
+keywords: ["architettura", "backend", "infrastructure", "design", "sistema"]
+
+# URL personalizzato
+slug: architettura-tecnica
+
+# Funzionalità speciali
+toc: true                       # Mostra indice automatico dei titoli
+math: true                      # Se il post contiene formule matematiche
+diagram: true                   # Se il post contiene diagrammi Mermaid
+
+# URL alternativi (redirect)
+aliases:
+  - /architettura/
+  - /architettura-progetto/
+---
+```
+
+### Note sui campi
+
+**`title`**
+- Obbligatorio
+- Usato per il titolo h1 della pagina
+- Mostrato negli elenchi e nelle card
+
+**`date`**
+- Obbligatorio, formato: YYYY-MM-DD
+- Determina l'ordine nei listing
+- Mostrata accanto al titolo
+
+**`draft`**
+- `true` = post non pubblicato (visibile solo con `hugo server --buildDrafts`)
+- `false` = post pubblico (default)
+- Utile per bozze in sviluppo
+
+**`weight`**
+- Numeri bassi vendono prima (weight: 1 prima di weight: 10)
+- Default è ordine alfabetico se non specificato
+- Usabile per pinning di post importanti
+
+**`tags`**
+- Array di stringhe: `["tag1", "tag2", "tag3"]`
+- Crea pagine filtrate per tag
+- Mostrate nella pagina del post
+
+**`summary`**
+- Testo di 1-2 righe (massimo 140 caratteri)
+- Mostrato negli elenchi (home, archivio, categorie)
+- Se non presente, Hugo estrae automaticamente dal contenuto
+
+**`toc` (Table of Contents)**
+- `true` = mostra indice automatico sulla destra
+- `false` = nasconde indice
+- Default dipende dalle impostazioni globali
+
+**`math` e `diagram`**
+- Abilita KaTeX per formule: `$$x = \frac{-b \pm \sqrt{b^2-4ac}}{2a}$$`
+- Abilita Mermaid per diagrammi (flowchart, sequence, etc.)
+
+### Esempio minimo (solo obbligatori)
+
+```yaml
+---
+title: "Primo post"
+date: 2026-02-09
+---
+```
+
+### Esempio con tutte le feature
+
+```yaml
+---
+title: "Guida al machine learning"
+date: 2026-02-10
+draft: false
+weight: 5
+tags: ["machine-learning", "ia", "python"]
+summary: "Introduzione ai concetti base del machine learning con esempi pratici"
+description: "Una guida completa ai principi fondamentali del machine learning"
+keywords: ["ML", "AI", "deep-learning", "neural-networks"]
+toc: true
+math: true
+slug: guida-machine-learning
+aliases:
+  - /ml-guide/
+  - /machine-learning-101/
 ---
 ```
 
