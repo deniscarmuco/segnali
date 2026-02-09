@@ -1,0 +1,33 @@
+{{ define "main" }}
+<article class="markdown book-article section-intro">
+  <h1>{{ .Title }}</h1>
+  
+  {{ .Content }}
+  
+  {{ if gt (len .Pages) 0 }}
+  <hr />
+  
+  <h2>Articoli in questa sezione</h2>
+  
+  <div class="section-posts">
+    {{ $pages := where .Pages "Kind" "page" }}
+    {{ $pages := where $pages "Draft" false }}
+    {{ $totalPages := len $pages }}
+    {{ range $index, $page := ($pages.ByDate.Reverse) }}
+      <div class="post-entry">
+        <div class="post-header">
+          <span class="post-id">#{{ printf "%04d" (add (len (where .Site.Pages "Section" "docs")) (sub $totalPages $index)) }}</span>
+          <span class="post-date">{{ $page.Date.Format "2006-01-02" }}</span>
+        </div>
+        
+        <h3 class="post-title">
+          <a href="{{ $page.RelPermalink }}">{{ $page.Title }}</a>
+        </h3>
+        
+        <p class="post-summary">{{ (substr $page.Summary 0 140) | plainify }}...</p>
+      </div>
+    {{ end }}
+  </div>
+  {{ end }}
+</article>
+{{ end }}
