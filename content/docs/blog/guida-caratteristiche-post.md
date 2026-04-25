@@ -131,7 +131,7 @@ cd /path/to/directory
 
 [Link a Google](https://google.com)
 
-[Link a pagina interna](/docs/infrastrutture/)
+[Link a pagina interna](/docs/blog/)
 
 [Link con titolo](https://github.com "GitHub - Dove ospitare il codice")
 

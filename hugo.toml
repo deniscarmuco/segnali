@@ -24,28 +24,11 @@ theme = 'hugo-book'
 
 # Menu principale della sidebar
 [[menu.main]]
-  identifier = 'infrastrutture'
-  name = '01. Infrastrutture'
+  identifier = 'blog'
+  name = 'Blog'
   weight = 1
-  url = '/docs/infrastrutture/'
+  url = '/docs/blog/'
 
-[[menu.main]]
-  identifier = 'sistemi'
-  name = '02. Sistemi'
-  weight = 2
-  url = '/docs/sistemi/'
-
-[[menu.main]]
-  identifier = 'orizzonti'
-  name = '03. Orizzonti'
-  weight = 3
-  url = '/docs/orizzonti/'
-
-[[menu.main]]
-  identifier = 'strumenti'
-  name = '04. Strumenti'
-  weight = 4
-  url = '/docs/strumenti/'
 [[menu.main]]
   identifier = 'archivio'
   name = 'Archivio'
