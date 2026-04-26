@@ -1,7 +1,7 @@
 ---
 title: "Guida completa alle caratteristiche dei post"
 date: 2026-02-08
-draft: false
+draft: true
 weight: 10
 tags: ["guide", "markdown", "formatting"]
 summary: "Una guida completa che mostra tutte le possibilità di formattazione e strutturazione all'interno dei post. Titoli, liste, codice, blockquote e molto altro."
